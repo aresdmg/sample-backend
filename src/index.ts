@@ -1,7 +1,13 @@
 import app from "./app.js";
+import dotenv from "dotenv";
 
 const start = () => {
-    const PORT = 8000
+    dotenv.config({
+        path: "./.env",
+        quiet: true
+    })
+    
+    const PORT = process.env.PORT ?? 8000
 
     try {
         app.listen(PORT, () => {
